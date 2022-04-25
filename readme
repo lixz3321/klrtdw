@@ -1,5 +1,8 @@
-昆仑健康实时数仓项目
+实时数仓项目
 架构：kafka+flink+hudi
 小记：
 1、hudi cow表在分区情况下磁盘占用巨大，并且每个分区下的小文件很多，小文件大小（400+KB）难控制，
 但是在不分区情况下，小文件就会很少，并且遵循配置的大小(100+MB)，表磁盘占用也大幅度减小
+2、如果使用insert方式初始化hudi表，为避免小文件问题，可以设置：
+hoodie.copyonwrite.insert.auto.split=false
+hoodie.copyonwrite.insert.split.size=100000
