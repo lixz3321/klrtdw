@@ -6,3 +6,4 @@
 2、如果使用insert方式初始化hudi表，为避免小文件问题，可以设置：
 hoodie.copyonwrite.insert.auto.split=false
 hoodie.copyonwrite.insert.split.size=100000
+3、hudi暂时不支持维表，如果实时join hudi表，那么会将整个hudi表一次性加载到内存供程序关联
